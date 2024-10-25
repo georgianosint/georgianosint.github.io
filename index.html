@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TgPhisher Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .sticker {
+            margin: 30px auto;
+            width: 150px;
+            height: 150px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .image-block {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .bot-button, .action-button {
+            padding: 15px 30px;
+            background-color: #2b2b2b;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .bot-button:hover, .action-button:hover {
+            background-color: #3b3b3b;
+        }
+
+        .bot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .bot-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bot-button.hidden {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #888;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+        }
+
+        @media (min-width: 768px) {
+            .bot-button, .action-button {
+                padding: 20px 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Georgian Data</h1>
+        <lottie-player class="sticker" src="стик3.json" background="transparent" speed="1" loop autoplay></lottie-player>
+
+        <div class="description">
+             Georgian Data - ეს არის საძიებო სისტემა რომელიც არის, მოწყობილი ერთ ტელეგრამ ბოტის სივრცეში!
+        </div>
+        <a href="https://t.me/GeorgianDataBot" class="action-button">წავედით!</a>
+
+        <lottie-player class="sticker" src="сиськи.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        <div class="description">
+            ამ ბოტის მეშვეობით შენ შეგიძლია მიიღო ინფორმაცია საქართველოს მოქალაქეების 2012 წლის არქივიდან, რომელიც იყო გატეხილი 2022 წელს.
+            ეგრე წოდებულ Data-Base'ში არის 4.934.859 ადამიანი
+        </div>
+
+        <footer>
+            © 2024 By Luka | <a href="https://t.me/GeorgianOsint">Telegram channel</a>
+        </footer>
+    </div>
+    <a href="https://t.me/GeorgianDataBot" class="bot-button">ძიება</a>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script>
+        const botButton = document.querySelector('.bot-button');
+        const elements = document.querySelectorAll('h1, .sticker, .description, .action-button, footer');
+
+        // ეგ არ მახსოვს როგორ მუშაობს, ბიჭო მერე მანახე ანგულარზე რეებს შვები
+        document.addEventListener('DOMContentLoaded', function () {
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = 1;
+                    el.style.transform = 'translateY(0)';
+                }, 300 * index);
+            });
+        });
+
+
+        window.addEventListener('scroll', function () {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            if (scrollPosition > windowHeight) {
+                botButton.classList.add('visible');
+                botButton.classList.remove('hidden');
+            } else {
+                botButton.classList.add('hidden');
+                botButton.classList.remove('visible');
+            }
+        });
+    </script>
+
+</body>
+</html>
